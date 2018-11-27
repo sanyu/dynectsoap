@@ -1,8 +1,8 @@
 package dynectsoap
 
 import (
-	log "github.com/Sirupsen/logrus"
 	"github.com/hooklift/gowsdl/soap"
+	log "github.com/sirupsen/logrus"
 	"time"
 )
 
