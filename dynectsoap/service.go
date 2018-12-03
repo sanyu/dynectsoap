@@ -2,7 +2,6 @@ package dynectsoap
 
 import (
 	log "github.com/Sirupsen/logrus"
-	"github.com/hooklift/gowsdl/soap"
 	"time"
 )
 
@@ -11,17 +10,17 @@ var (
 	ApiUrl          = "https://api2.dynect.net/SOAP/"
 )
 
-type dynect struct {
-	client *soap.Client
+type dynectsoap struct {
+	client *Client
 }
 
-func NewDynect(client *soap.Client) *dynect {
-	return &dynect{
+func NewDynect(client *Client) *dynectsoap {
+	return &dynectsoap{
 		client: client,
 	}
 }
 
-func (service *dynect) GetJobRetry(request *GetJobRequestType) (*GetJobResponseType, error) {
+func (service *dynectsoap) GetJobRetry(request *GetJobRequestType) (*GetJobResponseType, error) {
 	var err error
 	response := new(GetJobResponseType)
 
@@ -50,7 +49,7 @@ func (service *dynect) GetJobRetry(request *GetJobRequestType) (*GetJobResponseT
 	return response, nil
 }
 
-func (service *dynect) GetAllRecords(request *GetAllRecordsRequestType) (*GetAllRecordsResponseType, error) {
+func (service *dynectsoap) GetAllRecords(request *GetAllRecordsRequestType) (*GetAllRecordsResponseType, error) {
 	response := new(GetAllRecordsResponseType)
 
 	err := service.client.Call(ApiUrl, request, response)
@@ -61,7 +60,7 @@ func (service *dynect) GetAllRecords(request *GetAllRecordsRequestType) (*GetAll
 	return response, nil
 }
 
-func (service *dynect) GetJob(request *GetJobRequestType) (*GetJobResponseType, error) {
+func (service *dynectsoap) GetJob(request *GetJobRequestType) (*GetJobResponseType, error) {
 	response := new(GetJobResponseType)
 
 	err := service.client.Call(ApiUrl, request, response)
@@ -72,7 +71,7 @@ func (service *dynect) GetJob(request *GetJobRequestType) (*GetJobResponseType, 
 	return response, nil
 }
 
-func (service *dynect) SessionLogin(request *SessionLoginRequestType) (*SessionLoginResponseType, error) {
+func (service *dynectsoap) SessionLogin(request *SessionLoginRequestType) (*SessionLoginResponseType, error) {
 	response := new(SessionLoginResponseType)
 	err := service.client.Call(ApiUrl, request, response)
 	if err != nil {
@@ -82,7 +81,7 @@ func (service *dynect) SessionLogin(request *SessionLoginRequestType) (*SessionL
 	return response, nil
 }
 
-func (service *dynect) SessionLogout(request *SessionLogoutRequestType) (*SessionLogoutResponseType, error) {
+func (service *dynectsoap) SessionLogout(request *SessionLogoutRequestType) (*SessionLogoutResponseType, error) {
 	response := new(SessionLogoutResponseType)
 	err := service.client.Call(ApiUrl, request, response)
 	if err != nil {
@@ -92,7 +91,7 @@ func (service *dynect) SessionLogout(request *SessionLogoutRequestType) (*Sessio
 	return response, nil
 }
 
-func (service *dynect) SessionIsAlive(request *SessionIsAliveRequestType) (*SessionIsAliveResponseType, error) {
+func (service *dynectsoap) SessionIsAlive(request *SessionIsAliveRequestType) (*SessionIsAliveResponseType, error) {
 	response := new(SessionIsAliveResponseType)
 	err := service.client.Call(ApiUrl, request, response)
 	if err != nil {
@@ -102,7 +101,7 @@ func (service *dynect) SessionIsAlive(request *SessionIsAliveRequestType) (*Sess
 	return response, nil
 }
 
-func (service *dynect) SessionKeepAlive(request *SessionKeepAliveRequestType) (*SessionKeepAliveResponseType, error) {
+func (service *dynectsoap) SessionKeepAlive(request *SessionKeepAliveRequestType) (*SessionKeepAliveResponseType, error) {
 	response := new(SessionKeepAliveResponseType)
 	err := service.client.Call(ApiUrl, request, response)
 	if err != nil {

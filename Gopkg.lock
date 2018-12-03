@@ -10,20 +10,20 @@
   version = "v1.2.0"
 
 [[projects]]
-  branch = "master"
-  digest = "1:801cec669949b165913f97ffc6d8bd176fa3cde85b0d4d5333b83a2dd2127bc6"
-  name = "github.com/hooklift/gowsdl"
-  packages = ["soap"]
-  pruneopts = "UT"
-  revision = "dd8f1cae4f65c55c7ddca89a21925dd9d85ad14e"
-
-[[projects]]
   digest = "1:0a69a1c0db3591fcefb47f115b224592c8dfa4368b7ba9fae509d5e16cdc95c8"
   name = "github.com/konsorten/go-windows-terminal-sequences"
   packages = ["."]
   pruneopts = "UT"
   revision = "5c8c8bd35d3832f5d134ae1e1e375b69a4d25242"
   version = "v1.0.1"
+
+[[projects]]
+  digest = "1:4198694dc1a0dd3ec5efb0acae7921ae057288220b9725ec2c51de5e29e215ea"
+  name = "github.com/nesv/go-dynect"
+  packages = ["dynect"]
+  pruneopts = "UT"
+  revision = "cdd946344b54bdf7dbeac406c2f1fe93150f08ea"
+  version = "v0.6.0"
 
 [[projects]]
   branch = "master"
@@ -49,7 +49,7 @@
   analyzer-version = 1
   input-imports = [
     "github.com/Sirupsen/logrus",
-    "github.com/hooklift/gowsdl/soap",
+    "github.com/nesv/go-dynect/dynect",
   ]
   solver-name = "gps-cdcl"
   solver-version = 1
