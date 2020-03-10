@@ -279,6 +279,7 @@ func (s *Client) Call(soapAction string, request, response interface{}) error {
 
 	tr := &http.Transport{
 		TLSClientConfig: s.opts.tlsCfg,
+		Proxy: http.ProxyFromEnvironment,
 		Dial: func(network, addr string) (net.Conn, error) {
 			return net.DialTimeout(network, addr, s.opts.timeout)
 		},
